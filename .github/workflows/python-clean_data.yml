@@ -14,9 +14,11 @@ jobs:
          
       - name: clean_data 
         run: |
+          cd ModelCleaning
           python cleandata.py
           
       - name: Train and test model
         run: |
+          cd ModelCleaning
           python train_and_test.py
      
