@@ -6,11 +6,15 @@ jobs:
     steps:
       - name: Checkout code
       - uses: actions/checkout@v4
+
+      - name: set up python 3.10
+      - uses: actions/setup-python@v4
+      - with:
+         python-version: 3.10
       - name: clean_data 
       - run: |
-          pwd
-          ls -al
-          pwd
-          cd ModelCleaning
-          pip install pandas
           python cleandata.py
+      - name: Train and test model
+      - run: |
+          python train_and_test.py
+     
